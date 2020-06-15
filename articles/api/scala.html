@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">COVID-19 Data Hub</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
       </span>
     </div>
 
@@ -64,7 +64,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../../articles/data.html">Dataset</a>
+      <a href="../../articles/data.html">Download</a>
     </li>
     <li>
       <a href="../../articles/doc/data.html">Documentation</a>
@@ -142,6 +142,7 @@
 <div id="import-data-from-the-hub" class="section level2">
 <h2 class="hasAnchor">
 <a href="#import-data-from-the-hub" class="anchor"></a>Import Data from the Hub</h2>
+<p>Download the data from the <a href="/articles/data.html">here</a>.</p>
 <p>For Scala you can use following singleton object <code>Fetcher</code>. It uses components <code>java.net.URL</code> from Java Platform SE and <code>scala.io.Source</code> from Scala Standard Library.</p>
 <p>The same problem as in Python example occurs here, header <code>User-Agent</code> needs to be present, see <a href="https://stackoverflow.com/questions/13670692/403-forbidden-with-java-but-not-web-browser">similar issue in Java</a>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">// file: covid19datahub.scala</span></span>
@@ -186,7 +187,7 @@
 <a href="#terms-of-use" class="anchor"></a>Terms of Use</h2>
 <p>We have invested a lot of time and effort in creating <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>, please:</p>
 <ul>
-<li><p>cite <a href="https://doi.org/10.13140/RG.2.2.11649.81763">Guidotti and Ardia (2020)</a> in working papers and published papers that use it.</p></li>
+<li><p>cite <a href="https://www.researchgate.net/publication/340771808_COVID-19_Data_Hub">Guidotti and Ardia (2020)</a> in working papers and published papers that use it.</p></li>
 <li><p>place the URL <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> in a footnote to help others find <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>.</p></li>
 <li><p>you assume full risk for the use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>. We try our best to guarantee the data quality and consistency and the continuous filling of the Data Hub. However, it is free software and comes with ABSOLUTELY NO WARRANTY. Reliance on <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> for medical guidance or use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> in commerce is strictly prohibited.</p></li>
 </ul>
