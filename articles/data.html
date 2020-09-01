@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">COVID-19 Data Hub</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.0</span>
       </span>
     </div>
 
@@ -69,11 +69,17 @@
     <li>
       <a href="../articles/doc/data.html">Documentation</a>
     </li>
+    <li>
+      <a href="../articles/usage.html">Use Cases</a>
+    </li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Developers
+    Contributors
      
     <span class="caret"></span>
   </a>
@@ -82,7 +88,10 @@
       <a href="https://github.com/covid19datahub/COVID19/">GitHub</a>
     </li>
     <li>
-      <a href="../reference/index.html">Functions</a>
+      <a href="../reference/index.html">Documentation</a>
+    </li>
+    <li>
+      <a href="../articles/contributors.html">Acknowledgments</a>
     </li>
   </ul>
 </li>
@@ -138,10 +147,10 @@
 
     
     
-<p>The raw data are cleaned by filling missing dates with <code>NA</code> values. This ensures that all locations share the same grid of dates and no single day is skipped. Then, <code>NA</code> values are replaced with the previous non-<code>NA</code> value or <code>0</code>.</p>
 <p>The data are available at different levels of granularity: admin area level 1 (administrative area of top level, usually countries), admin area level 2 (usually states, regions, cantons), admin area level 3 (usually cities, municipalities).</p>
+<p><strong>Pre-processed data</strong> are obtained by filling missing dates in the raw data with <code>NA</code> values. This ensures that all locations share the same grid of dates and no single day is skipped. Then, <code>NA</code> values are replaced with the previous non-<code>NA</code> value or <code>0</code>.</p>
 <p><strong>Policies</strong> for admin areas level 2 and 3 <strong>are inherited</strong> from national-level policies by <a href="https://github.com/OxCGRT/covid-policy-tracker">Oxford Covid-19 Government Response Tracker</a>.</p>
-<p>See the <a href="/articles/doc/data.html">full documentation</a></p>
+<p>See the <a href="/articles/doc/data.html">dataset documentation</a> and <a href="/news/index.html">changelog</a>.</p>
 <div id="latest-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#latest-data" class="anchor"></a>Latest Data</h2>
@@ -163,42 +172,42 @@
 <tbody>
 <tr class="odd">
 <td><a href="https://storage.covid19datahub.io/data-1.csv" class="uri">https://storage.covid19datahub.io/data-1.csv</a></td>
-<td>Clean data</td>
+<td>Pre-processed data</td>
 <td>Administrative area level 1</td>
 <td>CSV</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data-1.csv.svg"></td>
 </tr>
 <tr class="even">
 <td><a href="https://storage.covid19datahub.io/data-2.csv" class="uri">https://storage.covid19datahub.io/data-2.csv</a></td>
-<td>Clean data</td>
+<td>Pre-processed data</td>
 <td>Administrative area level 2</td>
 <td>CSV</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data-2.csv.svg"></td>
 </tr>
 <tr class="odd">
 <td><a href="https://storage.covid19datahub.io/data-3.csv" class="uri">https://storage.covid19datahub.io/data-3.csv</a></td>
-<td>Clean data</td>
+<td>Pre-processed data</td>
 <td>Administrative area level 3</td>
 <td>CSV</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data-3.csv.svg"></td>
 </tr>
 <tr class="even">
 <td><a href="https://storage.covid19datahub.io/data-1.zip" class="uri">https://storage.covid19datahub.io/data-1.zip</a></td>
-<td>Clean data</td>
+<td>Pre-processed data</td>
 <td>Administrative area level 1</td>
 <td>ZIP</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data-1.zip.svg"></td>
 </tr>
 <tr class="odd">
 <td><a href="https://storage.covid19datahub.io/data-2.zip" class="uri">https://storage.covid19datahub.io/data-2.zip</a></td>
-<td>Clean data</td>
+<td>Pre-processed data</td>
 <td>Administrative area level 2</td>
 <td>ZIP</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data-2.zip.svg"></td>
 </tr>
 <tr class="even">
 <td><a href="https://storage.covid19datahub.io/data-3.zip" class="uri">https://storage.covid19datahub.io/data-3.zip</a></td>
-<td>Clean data</td>
+<td>Pre-processed data</td>
 <td>Administrative area level 3</td>
 <td>ZIP</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data-3.zip.svg"></td>
@@ -247,7 +256,7 @@
 </tr>
 <tr class="odd">
 <td><a href="https://storage.covid19datahub.io/data.log" class="uri">https://storage.covid19datahub.io/data.log</a></td>
-<td>Clean data - Log file</td>
+<td>Pre-processed data - Log file</td>
 <td>All levels</td>
 <td>CSV</td>
 <td><img src="https://storage.covid19datahub.io/downloads/data.log.svg"></td>
@@ -1269,9 +1278,9 @@
 <a href="#terms-of-use" class="anchor"></a>Terms of Use</h2>
 <p>We have invested a lot of time and effort in creating <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>, please:</p>
 <ul>
-<li><p>cite <a href="https://www.researchgate.net/publication/340771808_COVID-19_Data_Hub">Guidotti and Ardia (2020)</a> in working papers and published papers that use it.</p></li>
-<li><p>place the URL <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> in a footnote to help others find <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>.</p></li>
-<li><p>you assume full risk for the use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>. We try our best to guarantee the data quality and consistency and the continuous filling of the Data Hub. However, it is free software and comes with ABSOLUTELY NO WARRANTY. Reliance on <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> for medical guidance or use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> in commerce is strictly prohibited.</p></li>
+<li>cite <a href="https://doi.org/10.21105/joss.02376">Guidotti and Ardia (2020)</a> when using <a href="https://covid19datahub.io">COVID-19 Data Hub</a>.</li>
+<li>place the URL <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> in a footnote to help others find <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>.</li>
+<li>you assume full risk for the use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>. We try our best to guarantee the data quality and consistency and the continuous filling of the Data Hub. However, it is free software and comes with ABSOLUTELY NO WARRANTY. Reliance on <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> for medical guidance or use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> in commerce is strictly prohibited.</li>
 </ul>
 <p><strong>License</strong>: <a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a>.</p>
 </div>
@@ -1282,7 +1291,7 @@
 
 </div>
 <script src="https://utteranc.es/client.js" repo="covid19datahub/COVID19" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
-</script><p>’</p>
+</script>
 </div>
   </div>
 

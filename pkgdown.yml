@@ -9,6 +9,7 @@ articles:
   python: api/python.html
   r: api/r.html
   scala: api/scala.html
+  contributors: contributors.html
   data: data.html
   data: doc/data.html
   AFG: iso/AFG.html
@@ -20,6 +21,7 @@ articles:
   ARM: iso/ARM.html
   ASM: iso/ASM.html
   ATG: iso/ATG.html
+  AUS: iso/AUS.html
   AUT: iso/AUT.html
   AZE: iso/AZE.html
   BDI: iso/BDI.html
@@ -204,7 +206,8 @@ articles:
   ZAF: iso/ZAF.html
   ZMB: iso/ZMB.html
   ZWE: iso/ZWE.html
-last_built: 2020-09-01T16:26Z
+  usage: usage.html
+last_built: 2020-09-01T20:25Z
 urls:
   reference: https://covid19datahub.io/reference
   article: https://covid19datahub.io/articles

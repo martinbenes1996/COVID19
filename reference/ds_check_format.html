@@ -92,7 +92,7 @@ Before submission, the data should be double checked by comparing with external 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">COVID-19 Data Hub</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.0</span>
       </span>
     </div>
 
@@ -117,11 +117,17 @@ Before submission, the data should be double checked by comparing with external 
     <li>
       <a href="../articles/doc/data.html">Documentation</a>
     </li>
+    <li>
+      <a href="../articles/usage.html">Use Cases</a>
+    </li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Developers
+    Contributors
      
     <span class="caret"></span>
   </a>
@@ -130,7 +136,10 @@ Before submission, the data should be double checked by comparing with external 
       <a href="https://github.com/covid19datahub/COVID19/">GitHub</a>
     </li>
     <li>
-      <a href="../reference/index.html">Functions</a>
+      <a href="../reference/index.html">Documentation</a>
+    </li>
+    <li>
+      <a href="../articles/contributors.html">Acknowledgments</a>
     </li>
   </ul>
 </li>
@@ -187,7 +196,7 @@ The function checks the FORMAT, NOT the DATA.
 Before submission, the data should be double checked by comparing with external data sources (e.g. Google search).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ds_check_format</span>(<span class='no'>x</span>, <span class='no'>level</span>)</pre>
+    <pre class="usage"><span class='fu'>ds_check_format</span>(<span class='no'>x</span>, <span class='no'>level</span>, <span class='kw'>ci</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>verbose</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

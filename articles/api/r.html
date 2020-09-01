@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../../index.html">COVID-19 Data Hub</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.3.0</span>
       </span>
     </div>
 
@@ -69,11 +69,17 @@
     <li>
       <a href="../../articles/doc/data.html">Documentation</a>
     </li>
+    <li>
+      <a href="../../articles/usage.html">Use Cases</a>
+    </li>
+    <li>
+      <a href="../../news/index.html">Changelog</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Developers
+    Contributors
      
     <span class="caret"></span>
   </a>
@@ -82,7 +88,10 @@
       <a href="https://github.com/covid19datahub/COVID19/">GitHub</a>
     </li>
     <li>
-      <a href="../../reference/index.html">Functions</a>
+      <a href="../../reference/index.html">Documentation</a>
+    </li>
+    <li>
+      <a href="../../articles/contributors.html">Acknowledgments</a>
     </li>
   </ul>
 </li>
@@ -138,7 +147,7 @@
 
     
     
-<p><a href="https://cran.r-project.org/package=COVID19"><img src="https://www.r-pkg.org/badges/version/COVID19"></a> <a href="https://cran.r-project.org/package=COVID19"><img src="https://cranlogs.r-pkg.org/badges/last-month/COVID19"></a> <a href="https://www.researchgate.net/publication/340771808_COVID-19_Data_Hub"><img src="https://img.shields.io/badge/doi-10.13140/RG.2.2.11649.81763-orange.svg"></a></p>
+<p><a href="https://cran.r-project.org/package=COVID19"><img src="https://www.r-pkg.org/badges/version/COVID19"></a> <a href="https://cran.r-project.org/package=COVID19"><img src="https://cranlogs.r-pkg.org/badges/last-month/COVID19"></a> <a href="https://doi.org/10.21105/joss.02376"><img src="https://joss.theoj.org/papers/10.21105/joss.02376/status.svg" alt="DOI"></a></p>
 <p><strong>GitHub</strong>: <a href="https://github.com/covid19datahub/R" class="uri">https://github.com/covid19datahub/R</a></p>
 <p><strong>CRAN</strong>: <a href="https://cloud.r-project.org/package=COVID19" class="uri">https://cloud.r-project.org/package=COVID19</a></p>
 <div id="quickstart" class="section level2">
@@ -163,44 +172,57 @@
 <span class="co"># Specific country data by city</span>
 <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/covid19.html">covid19</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Italy"</span>,<span class="st">"US"</span>), <span class="kw">level</span> <span class="kw">=</span> <span class="fl">3</span>)</pre></body></html></div>
 </div>
+<div id="raw-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#raw-data" class="anchor"></a>Raw data</h2>
+<p>Logical. Skip data cleaning? Default <code>True</code>. If <code>raw=False</code>, the raw data are cleaned by filling missing dates with <code>NA</code> values. This ensures that all locations share the same grid of dates and no single day is skipped. Then, <code>NA</code> values are replaced with the previous non-<code>NA</code> value or <code>0</code>.</p>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/covid19.html">covid19</a></span>(<span class="kw">raw</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
+</div>
+<div id="vintage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#vintage" class="anchor"></a>Vintage</h2>
+<p>Logical. Retrieve the snapshot of the dataset that was generated at the <code>end</code> date instead of using the latest version. Default <code>FALSE</code>.</p>
+<p>To fetch e.g. US data that were accessible on <em>22th April 2020</em> type</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/covid19.html">covid19</a></span>(<span class="st">"USA"</span>, <span class="kw">end</span> <span class="kw">=</span> <span class="st">"2020-04-22"</span>, <span class="kw">vintage</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
+<p>The vintage data are collected at the end of the day, but published with approximately 48 hour delay, once the day is completed in all the timezones.</p>
+</div>
 <div id="merge-with-world-bank-open-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#merge-with-world-bank-open-data" class="anchor"></a>Merge with World Bank Open Data</h2>
 <p>The dataset can be extended with <a href="https://data.worldbank.org/">World Bank Open Data</a> via the argument <code>wb</code>, a character vector of indicator codes. The codes can be found by inspecting the corresponding URL. For example, the code of the GDP indicator available at <a href="https://data.worldbank.org/indicator/NY.GDP.MKTP.CD" class="uri">https://data.worldbank.org/indicator/NY.GDP.MKTP.CD</a> is <code>NY.GDP.MKTP.CD</code>.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># Merge with World Bank data</span>
-<span class="no">wb</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"gdp"</span> <span class="kw">=</span> <span class="st">"NY.GDP.MKTP.CD"</span>, <span class="st">"hosp_beds"</span> <span class="kw">=</span> <span class="st">"SH.MED.BEDS.ZS"</span>)
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">wb</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"gdp"</span> <span class="kw">=</span> <span class="st">"NY.GDP.MKTP.CD"</span>, <span class="st">"hosp_beds"</span> <span class="kw">=</span> <span class="st">"SH.MED.BEDS.ZS"</span>)
 <span class="no">x</span>  <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/covid19.html">covid19</a></span>(<span class="kw">wb</span> <span class="kw">=</span> <span class="no">wb</span>)</pre></body></html></div>
 </div>
 <div id="merge-with-google-mobility-reports" class="section level2">
 <h2 class="hasAnchor">
 <a href="#merge-with-google-mobility-reports" class="anchor"></a>Merge with Google Mobility Reports</h2>
 <p>The dataset can be extended with <a href="https://www.google.com/covid19/mobility/">Google Mobility Reports</a> via the argument <code>gmr</code>, the url to the Google CSV file. At the time of writing, the CSV is available at:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">gmr</span> <span class="kw">&lt;-</span> <span class="st">"https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"</span>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">gmr</span> <span class="kw">&lt;-</span> <span class="st">"https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv"</span>
 <span class="no">x</span>   <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/covid19.html">covid19</a></span>(<span class="kw">gmr</span> <span class="kw">=</span> <span class="no">gmr</span>)</pre></body></html></div>
 </div>
 <div id="merge-with-apple-mobility-reports" class="section level2">
 <h2 class="hasAnchor">
 <a href="#merge-with-apple-mobility-reports" class="anchor"></a>Merge with Apple Mobility Reports</h2>
 <p>The dataset can be extended with <a href="https://www.apple.com/covid19/mobility">Apple Mobility Reports</a> via the argument <code>amr</code>, the url to the Apple CSV file. At the time of writing, the CSV is available at:</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">amr</span> <span class="kw">&lt;-</span> <span class="st">"https://covid19-static.cdn-apple.com/covid19-mobility-data/"</span>
-<span class="no">amr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="no">amr</span>, <span class="st">"2008HotfixDev28/v2/en-us/applemobilitytrends-2020-05-15.csv"</span>)
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">amr</span> <span class="kw">&lt;-</span> <span class="st">"https://covid19-static.cdn-apple.com/covid19-mobility-data/"</span>
+<span class="no">amr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="no">amr</span>, <span class="st">"2015HotfixDev10/v3/en-us/applemobilitytrends-2020-08-24.csv"</span>)
 <span class="no">x</span>   <span class="kw">&lt;-</span> <span class="fu"><a href="../../reference/covid19.html">covid19</a></span>(<span class="kw">amr</span> <span class="kw">=</span> <span class="no">amr</span>)</pre></body></html></div>
 </div>
-<div id="list-the-data-sources" class="section level2">
+<div id="data-sources" class="section level2">
 <h2 class="hasAnchor">
-<a href="#list-the-data-sources" class="anchor"></a>List the data sources</h2>
+<a href="#data-sources" class="anchor"></a>Data sources</h2>
 <p>Data sources are stored in the <code>src</code> attribute.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="co"># Data sources</span>
-<span class="no">s</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span>(<span class="no">x</span>, <span class="st">"src"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">s</span> <span class="kw">&lt;-</span> <span class="fu">covid19cite</span>(<span class="no">x</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span>(<span class="no">s</span>)</pre></body></html></div>
 </div>
 <div id="terms-of-use" class="section level2">
 <h2 class="hasAnchor">
 <a href="#terms-of-use" class="anchor"></a>Terms of Use</h2>
 <p>We have invested a lot of time and effort in creating <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>, please:</p>
 <ul>
-<li><p>cite <a href="https://www.researchgate.net/publication/340771808_COVID-19_Data_Hub">Guidotti and Ardia (2020)</a> in working papers and published papers that use it.</p></li>
-<li><p>place the URL <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> in a footnote to help others find <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>.</p></li>
-<li><p>you assume full risk for the use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>. We try our best to guarantee the data quality and consistency and the continuous filling of the Data Hub. However, it is free software and comes with ABSOLUTELY NO WARRANTY. Reliance on <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> for medical guidance or use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> in commerce is strictly prohibited.</p></li>
+<li>cite <a href="https://doi.org/10.21105/joss.02376">Guidotti and Ardia (2020)</a> when using <a href="https://covid19datahub.io">COVID-19 Data Hub</a>.</li>
+<li>place the URL <a href="https://covid19datahub.io" class="uri">https://covid19datahub.io</a> in a footnote to help others find <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>.</li>
+<li>you assume full risk for the use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a>. We try our best to guarantee the data quality and consistency and the continuous filling of the Data Hub. However, it is free software and comes with ABSOLUTELY NO WARRANTY. Reliance on <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> for medical guidance or use of <a href="https://covid19datahub.io/">COVID-19 Data Hub</a> in commerce is strictly prohibited.</li>
 </ul>
 <p><strong>License</strong>: <a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a>.</p>
 </div>
@@ -211,7 +233,7 @@
 
 </div>
 <script src="https://utteranc.es/client.js" repo="covid19datahub/COVID19" issue-term="pathname" theme="github-light" crossorigin="anonymous" async>
-</script><p>’</p>
+</script>
 </div>
   </div>
 
