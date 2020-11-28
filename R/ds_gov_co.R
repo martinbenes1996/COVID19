@@ -27,6 +27,11 @@ gov_co <- function(cache, level){
   # sanitize
   x$type <- tolower(x$type)
   
+  # fix 
+  idx <- which(x$state_code==8 & x$city_code==8001)
+  if(length(idx))
+    x <- x[-idx,]
+  
   # date 
   for(d in c("date_confirmed","date_deaths","date_recovered"))
     x[[d]] <- as.Date(x[[d]], format = "%d/%m/%Y")
